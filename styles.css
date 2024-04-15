@@ -1,0 +1,17 @@
+html {
+    box-sizing: border-box;
+    font-family: "EB Garamond", serif;
+    font-size: 1.2em;
+}
+
+body {
+    padding: 4%;
+}
+
+.title {
+    text-align: center;
+}
+
+.title > p {
+    font-size: 0.9em;
+}
