@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Check Requests", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Check Requests", "type": "quantitative"}}}], "data": {"name": "data-3558a233822ee08a317d4f0c10ff3439"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Estimated Firearm Purchases and Firearm Related Mortality Rates in Maine (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-3558a233822ee08a317d4f0c10ff3439": [{"Year": 2021, "State": "ME", "Rate": 12.6, "Deaths": 178, "Total Background Check Requests": 129193, "Notes ": null}, {"Year": 2020, "State": "ME", "Rate": 10.4, "Deaths": 153, "Total Background Check Requests": 137149, "Notes ": null}, {"Year": 2019, "State": "ME", "Rate": 11.5, "Deaths": 163, "Total Background Check Requests": 90626, "Notes ": null}, {"Year": 2018, "State": "ME", "Rate": 10.3, "Deaths": 159, "Total Background Check Requests": 93360, "Notes ": null}, {"Year": 2017, "State": "ME", "Rate": 11.7, "Deaths": 172, "Total Background Check Requests": 96590, "Notes ": null}, {"Year": 2016, "State": "ME", "Rate": 8.3, "Deaths": 123, "Total Background Check Requests": 111582, "Notes ": null}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

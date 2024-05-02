@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Check Requests", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Check Requests", "type": "quantitative"}}}], "data": {"name": "data-ddfaa53a96adcf893893f875e1b54a30"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Estimated Firearm Purchases and Firearm Related Mortality Rates in New Jersey (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-ddfaa53a96adcf893893f875e1b54a30": [{"Year": 2021, "State": "NJ", "Rate": 5.2, "Deaths": 475, "Total Background Check Requests": 223437, "Notes ": null}, {"Year": 2020, "State": "NJ", "Rate": 5.0, "Deaths": 443, "Total Background Check Requests": 177901, "Notes ": null}, {"Year": 2019, "State": "NJ", "Rate": 4.1, "Deaths": 368, "Total Background Check Requests": 91257, "Notes ": null}, {"Year": 2018, "State": "NJ", "Rate": 4.8, "Deaths": 420, "Total Background Check Requests": 93124, "Notes ": null}, {"Year": 2017, "State": "NJ", "Rate": 5.3, "Deaths": 478, "Total Background Check Requests": 103739, "Notes ": null}, {"Year": 2016, "State": "NJ", "Rate": 5.5, "Deaths": 485, "Total Background Check Requests": 121853, "Notes ": null}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
