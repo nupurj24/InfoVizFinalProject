@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.17.0"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
     <title>COMP590 Final Project</title>
 </head>
 
@@ -15,15 +18,115 @@
 
 <body>
     <!-- alt z to auto wrap text in vscode -->
-    <p>In the past several years, high numbers of gun violence have been a contentious issue in the US. Some states in the US have changed their restrictions surrounding firearms, but gun restrictions and policies have continued to be debated.</p>
+    <p>In the past several years, high numbers of gun violence have been a contentious issue in the US. As a result, legislation revolving around guns has been constantly shifting, and every state continues to update its laws almost every year, if not more.</p>
+    <p>In order to investigate which laws seem to be most impactful, we will corroborate background check data from the FBI's National Instant Criminal Background Check System (NICS) with gun death data from the CDC from 2016 to 2021. Under federal law, background checks are required in order to purchase a firearm from a licensed dealer; however, the data does not specify why the background check was requested.</p>
+    <p>We used largely used information from <a href="gun.laws.com">gun.laws.com</a>, a website that focuses on delivering legal information through technology, to track the relevant legislative changes that were made by each state over the years. All changes were verified with the state's published gun handbook (found online) for that year.</p>
 
-    <h2>The Whole Country</h2>
-    <p><div class='tableauPlaceholder' id='viz1714008056605' style='position: relative'><noscript><a href='#'><img alt='Percent Change In Death Rate By State 2016-2021 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CX&#47;CXWGPSZPX&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;CXWGPSZPX' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CX&#47;CXWGPSZPX&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1714008056605');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></p>
+    <h2>An Overview of the Whole Country</h2>
+    <p>We first decided to explore which states had the highest changes in gun deaths over time. To do this, we created a map of all of the states, and calculated the percent change of the age-adjusted death rates between 2016 and 2021.</p>
+    <div class="map-container"><div class='tableauPlaceholder' id='viz1714008056605' style='position: relative'><noscript><a href='#'><img alt='Percent Change In Death Rate By State 2016-2021' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CX&#47;CXWGPSZPX&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;CXWGPSZPX' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CX&#47;CXWGPSZPX&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div><script type='text/javascript'>var divElement = document.getElementById('viz1714008056605');var vizElement = divElement.getElementsByTagName('object')[0];vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';var scriptElement = document.createElement('script');scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';vizElement.parentNode.insertBefore(scriptElement, vizElement);</script></div>
 
-    <h2>No Change in Restrictions</h2>
+    <p></p>
+    <p>This map is interactive, and hovering over each state displays a tooltip that shows the percent change, as well as the numbers that we used in the calculation. From the map, several states stand out, particularly New Hampshire, New Jersey, and West Virginia, whose death rates decreased over this time period. Massachusetts also stands out, due to the fact that its death rate stayed the same. Finally, Maine, New Mexico, and Mississippi stand out as the states whose death rates increased the most.</p>
+    <p>Since a simple percent change calculation does not capture any fluctuations in the intervening time, as evidenced by Massachusetts, we decided to further investigate these states. We will look at the data for these states year-by-year, and document the legislative changes that they made each year. </p>
 
-    <h2>Increased Restrictions</h2>
+    <h2>A Closer Look</h2>
+    <p>Note that the axis scales are different for each state's graph. We wanted to focus on the relationship between the trendlines of each state, and standardizing the axes of all graphs to the same scale made this more difficult.</p>
+    <h3>New Hampshire</h3>
+    <div class="state-container" id="new-hampshire">
+        <p>YOUR TEXT GOES HERE</p>
+        <!-- paste the chart code here -->
+    </div>
 
-    <h2>Loosened Restrictions</h2>
+    <h3>New Jersey</h3>
+    <div class="state-container" id="new-jersey">
+        <p>YOUR TEXT GOES HERE</p>
+        <!-- paste the chart code here -->
+    </div>
+
+    <h3>West Virginia</h3>
+    <div class="state-container" id="west-virginia">
+        <p>West Virginia saw a decrease in death rates between 2016-2021, going from 17.50 to 17.30. As a whole, West Virginia has weak gun laws. </p>
+        <div id="chart_wv"></div>
+        <script>
+            (function(vegaEmbed) {
+            var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-9a93ebcfd72feb55be936c043e7b8da8"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in West Virginia (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-9a93ebcfd72feb55be936c043e7b8da8": [{"Year": 2021, "State": "WV", "Rate": 17.3, "Deaths": 319, "Total Background Checks": 224240, "Notes": "Strengths regulation of firearm dealers."}, {"Year": 2020, "State": "WV", "Rate": 18.1, "Deaths": 325, "Total Background Checks": 265705, "Notes": "Individuals can carry concealed firearms without a concealed carry permit."}, {"Year": 2019, "State": "WV", "Rate": 16.6, "Deaths": 300, "Total Background Checks": 206196, "Notes": "Passes laws promoting responsible firearm storage and holding adults accountable for preventing children from accessing firearms."}, {"Year": 2018, "State": "WV", "Rate": 18.2, "Deaths": 343, "Total Background Checks": 241678, "Notes": "Individuals with valid out-of-state concealed carry permits can carry in WV."}, {"Year": 2017, "State": "WV", "Rate": 18.6, "Deaths": 348, "Total Background Checks": 222768, "Notes": "Strengthens reporting of mental health records to NICS, aiming to prevent individuals from mental health concerns from accessing firearms."}, {"Year": 2016, "State": "WV", "Rate": 17.5, "Deaths": 332, "Total Background Checks": 242350, "Notes": "Permitless carry takes effect, allowing individuals to openly carry weapons without a permit."}]}};
+            var embedOpt = {"mode": "vega-lite"};
+
+            function showError(el, error){
+                el.innerHTML = ('<div class="error" style="color:red;">'
+                                + '<p>JavaScript Error: ' + error.message + '</p>'
+                                + "<p>This usually means there's a typo in your chart specification. "
+                                + "See the javascript console for the full traceback.</p>"
+                                + '</div>');
+                throw error;
+            }
+            const el = document.getElementById('chart_wv');
+            vegaEmbed("#chart_wv", spec, embedOpt)
+                .catch(error => showError(el, error));
+            })(vegaEmbed);
+
+        </script>
+    </div>
+
+    <h3>Massachusetts</h3>
+    <div class="state-container" id="massachusetts">
+        <p>STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF</p>
+        <div id="chart_ma"></div>
+        <script>
+            (function(vegaEmbed) {
+            var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-ac31da9ee485ced8baad7f0cf9186713"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in Massachusetts (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-ac31da9ee485ced8baad7f0cf9186713": [{"Year": 2021, "State": "MA", "Rate": 3.4, "Deaths": 247, "Total Background Checks": 259248, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes."}, {"Year": 2020, "State": "MA", "Rate": 3.7, "Deaths": 268, "Total Background Checks": 262583, "Notes": "Extends mandatory waiting time for firearm purchases, allowing for more time for background checks."}, {"Year": 2019, "State": "MA", "Rate": 3.4, "Deaths": 247, "Total Background Checks": 212316, "Notes": "Tightens background checks for all firearm transfers."}, {"Year": 2018, "State": "MA", "Rate": 3.5, "Deaths": 258, "Total Background Checks": 211295, "Notes": "Implements \"red flag\" laws, allowing authorities and family members to seek temporary firearm removal from individuals showing signs of danger."}, {"Year": 2017, "State": "MA", "Rate": 3.7, "Deaths": 262, "Total Background Checks": 206492, "Notes": "Passes legislation that requires individuals to obtain a firearms identification card to purchase ammunition."}, {"Year": 2016, "State": "MA", "Rate": 3.4, "Deaths": 242, "Total Background Checks": 226212, "Notes": "Introduces regulations mandating secure firearm storage to prevent access by unauthorized individual."}]}};
+            var embedOpt = {"mode": "vega-lite"};
+
+            function showError(el, error){
+                el.innerHTML = ('<div class="error" style="color:red;">'
+                                + '<p>JavaScript Error: ' + error.message + '</p>'
+                                + "<p>This usually means there's a typo in your chart specification. "
+                                + "See the javascript console for the full traceback.</p>"
+                                + '</div>');
+                throw error;
+            }
+            const el = document.getElementById('chart_ma');
+            vegaEmbed("#chart_ma", spec, embedOpt)
+                .catch(error => showError(el, error));
+            })(vegaEmbed);
+        </script>
+    </div>
+
+    <h3>Maine</h3>
+    <div class="state-container" id="maine">
+        <p>YOUR TEXT GOES HERE</p>
+        <!-- paste the chart code here -->
+    </div>
+
+    <h3>New Mexico</h3>
+    <div class="state-container" id="new-mexico">
+        <p>YOUR TEXT GOES HERE</p>
+        <!-- paste the chart code here -->
+    </div>
+
+    <h3>Mississippi</h3>
+    <div class="state-container" id="mississippi">
+        <p>STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF STUFF</p>
+        <div id="chart_ms"></div>
+        <script>
+            (function(vegaEmbed) {
+            var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-5d4c62a31abe5b9e4fa46f732b31d2f6"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in Mississippi (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-5d4c62a31abe5b9e4fa46f732b31d2f6": [{"Year": 2021, "State": "MS", "Rate": 33.9, "Deaths": 962, "Total Background Checks": 323319, "Notes": "Proposes legislation to enhance firearm training requirements for concealed carry applicants, emphasizing responsible gun ownership."}, {"Year": 2020, "State": "MS", "Rate": 28.6, "Deaths": 818, "Total Background Checks": 366829, "Notes": "Passes regulations requiring reporting lost or stolen firearms to law enforcement."}, {"Year": 2019, "State": "MS", "Rate": 24.2, "Deaths": 710, "Total Background Checks": 238388, "Notes": "Enhances background checks for concealed carry applicants, focusing on mental health history and criminal records."}, {"Year": 2018, "State": "MS", "Rate": 22.9, "Deaths": 681, "Total Background Checks": 247278, "Notes": "Prevents local jurisdictions from enacting firearm regulations that exceed state laws."}, {"Year": 2017, "State": "MS", "Rate": 21.5, "Deaths": 632, "Total Background Checks": 251852, "Notes": "Imposes stricter penalties for individuals convicted of gun-related crimes, aiming to deter illegal firearm use."}, {"Year": 2016, "State": "MS", "Rate": 19.9, "Deaths": 587, "Total Background Checks": 276161, "Notes": "Passes \"stand your ground law\", which allows individuals to use deadly force in self-defense without a duty to retreat."}]}};
+            var embedOpt = {"mode": "vega-lite"};
+
+            function showError(el, error){
+                el.innerHTML = ('<div class="error" style="color:red;">'
+                                + '<p>JavaScript Error: ' + error.message + '</p>'
+                                + "<p>This usually means there's a typo in your chart specification. "
+                                + "See the javascript console for the full traceback.</p>"
+                                + '</div>');
+                throw error;
+            }
+            const el = document.getElementById('chart_ms');
+            vegaEmbed("#chart_ms", spec, embedOpt)
+                .catch(error => showError(el, error));
+            })(vegaEmbed);
+        </script>
+    </div>
 </body>
 </html>
