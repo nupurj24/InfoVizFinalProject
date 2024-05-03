@@ -32,207 +32,435 @@
 
     <h2>A Closer Look</h2>
     <p>Note that the axis scales are different for each state's graph. We wanted to focus on the relationship between the trendlines of each state, and standardizing the axes of all graphs to the same scale made this more difficult.</p>
-    <h3>New Hampshire</h3>
-    <div class="state-container" id="new-hampshire">
-        <div class="text-container">
-            <p>The mortality rate in New Hampshire fluctuated significantly over the six years. It began at 9.3 in 2016, dropped to a low of about 6.0 in 2018, peaked at 10.8 in 2018, and ended at 8.3 in 2021. 
-                The number of background checks also showed variability, starting at 165,164 in 2016, reaching a high of 174,662 in 2020, and slightly reducing to 151,853 in 2021. 
-                Each year included legislative changes aimed at improving firearm safety, such as enacting temporary firearm removal laws, tightening the background check process, and introducing stricter penalties for gun-related crimes.
-            </p>
-            <p>The fluctuation in New Hampshire's mortality rates despite increasing background checks and legislative actions underscores the complex relationship between gun control measures and actual outcomes. It appears that while legislative efforts are robust, they might not be sufficiently addressing all factors contributing to gun mortality. This indicates the need for a more holistic approach, perhaps focusing on educational campaigns, mental health support, and community policing to complement legal measures.</p>    
+    <p></p>
+
+
+    <div id="state-select-container">
+        <h2>State Data Viewer</h2>
+        <label for="state-select">Choose a State:</label>
+        <select id="state-select">
+            <option value="">--Please choose an option--</option>
+            <option value="new-hampshire">New Hampshire</option>
+            <option value="new-jersey">New Jersey</option>
+            <option value="west-virginia">West Virginia</option>
+            <option value="massachusetts">Massachusetts</option>
+            <option value="maine">Maine</option>
+            <option value="new-mexico">New Mexico</option>
+            <option value="mississippi">Mississippi</option>
+        </select> 
+    </div>
+
+    <p></p>
+    
+
+    <div id="data-container">
+        <div class="state-container" id="new-hampshire">
+            <h3>New Hampshire</h3>
+            <div class="text-container">
+                <p>The mortality rate in New Hampshire fluctuated significantly over the six years. It began at 9.3 in 2016, dropped to a low of about 6.0 in 2018, peaked at 10.8 in 2018, and ended at 8.3 in 2021. 
+                    The number of background checks also showed variability, starting at 165,164 in 2016, reaching a high of 174,662 in 2020, and slightly reducing to 151,853 in 2021. 
+                    Each year included legislative changes aimed at improving firearm safety, such as enacting temporary firearm removal laws, tightening the background check process, and introducing stricter penalties for gun-related crimes.
+                </p>
+                <p>The fluctuation in New Hampshire's mortality rates despite increasing background checks and legislative actions underscores the complex relationship between gun control measures and actual outcomes. It appears that while legislative efforts are robust, they might not be sufficiently addressing all factors contributing to gun mortality. This indicates the need for a more holistic approach, perhaps focusing on educational campaigns, mental health support, and community policing to complement legal measures.</p>    
+            </div>
+            <div id="chart-nh"></div>
+            <script>
+                (function(vegaEmbed) {
+                  var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Checks", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-e57d03b15ef1d91d157292f7ebb7c680"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in New Hampshire (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-e57d03b15ef1d91d157292f7ebb7c680": [{"Year": 2021, "State": "NH", "Rate": 8.3, "Deaths": 123, "Total Background Checks": 151853, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."}, {"Year": 2020, "State": "NH", "Rate": 8.9, "Deaths": 128, "Total Background Checks": 174662, "Notes": "Discusses the potential implementation of a waiting period for firearm purchases to allow time for background checks and cooling-off periods."}, {"Year": 2019, "State": "NH", "Rate": 10.7, "Deaths": 156, "Total Background Checks": 112173, "Notes": "Tightens the background check process for concealed carry permit applicants with focusing on mental health history and criminal records."}, {"Year": 2018, "State": "NH", "Rate": 10.8, "Deaths": 155, "Total Background Checks": 120889, "Notes": "Introduces guidelines promoting responsible firearm storage practices to prevent unauthorized access in households with minors particularly."}, {"Year": 2017, "State": "NH", "Rate": 10.4, "Deaths": 146, "Total Background Checks": 129090, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes to deter illegal firearm use."}, {"Year": 2016, "State": "NH", "Rate": 9.3, "Deaths": 132, "Total Background Checks": 165164, "Notes": "Strengthens its preemption laws to prevent local jurisdictions from enacting firearm regulations that exceed state laws."}]}};
+                  var embedOpt = {"mode": "vega-lite"};
+            
+                  function showError(el, error){
+                      el.innerHTML = ('<div class="error" style="color:red;">'
+                                      + '<p>JavaScript Error: ' + error.message + '</p>'
+                                      + "<p>This usually means there's a typo in your chart specification. "
+                                      + "See the javascript console for the full traceback.</p>"
+                                      + '</div>');
+                      throw error;
+                  }
+                  const el = document.getElementById('chart-nh');
+                  vegaEmbed("#chart-nh", spec, embedOpt)
+                    .catch(error => showError(el, error));
+                })(vegaEmbed);
+            </script>
         </div>
-        <div id="chart-nh"></div>
-        <script>
-            (function(vegaEmbed) {
-            var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-e57d03b15ef1d91d157292f7ebb7c680"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in New Hampshire (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-e57d03b15ef1d91d157292f7ebb7c680": [{"Year": 2021, "State": "NH", "Rate": 8.3, "Deaths": 123, "Total Background Checks": 151853, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."}, {"Year": 2020, "State": "NH", "Rate": 8.9, "Deaths": 128, "Total Background Checks": 174662, "Notes": "Discusses the potential implementation of a waiting period for firearm purchases to allow time for background checks and cooling-off periods."}, {"Year": 2019, "State": "NH", "Rate": 10.7, "Deaths": 156, "Total Background Checks": 112173, "Notes": "Tightens the background check process for concealed carry permit applicants with focusing on mental health history and criminal records."}, {"Year": 2018, "State": "NH", "Rate": 10.8, "Deaths": 155, "Total Background Checks": 120889, "Notes": "Introduces guidelines promoting responsible firearm storage practices to prevent unauthorized access in households with minors particularly."}, {"Year": 2017, "State": "NH", "Rate": 10.4, "Deaths": 146, "Total Background Checks": 129090, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes to deter illegal firearm use."}, {"Year": 2016, "State": "NH", "Rate": 9.3, "Deaths": 132, "Total Background Checks": 165164, "Notes": "Strengthens its preemption laws to prevent local jurisdictions from enacting firearm regulations that exceed state laws."}]}};
-            var embedOpt = {"mode": "vega-lite"};
 
-            function showError(el, error){
-                el.innerHTML = ('<div class="error" style="color:red;">'
-                                + '<p>JavaScript Error: ' + error.message + '</p>'
-                                + "<p>This usually means there's a typo in your chart specification. "
-                                + "See the javascript console for the full traceback.</p>"
-                                + '</div>');
-                throw error;
-            }
-            const el = document.getElementById('chart-nh');
-            vegaEmbed("#chart-nh", spec, embedOpt)
-                .catch(error => showError(el, error));
-            })(vegaEmbed);
-        </script>
-    </div>
+        <div class="state-container" id="new-jersey">
+            <h3>New Jersey</h3>
+            <p>According to Everytown Research and Policy, New Jersey ranks as number 7 in the United States for gun law strength with its comprehensive policies that effectively prevent gun violence. For the time period that we studied, New Jersey’s firearm mortality rates decreased and remained quite low even as background check requests went up. This can be an indicator that New Jersey’s gun safety regulations, even with an estimated increase in purchase of firearms, help maintain a low firearm mortality rate. </p>
+            <div id="chart-nj"></div>
+            <script>
+                (function(vegaEmbed) {
+                var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Check Requests", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Check Requests", "type": "quantitative"}}}], "data": {"name": "data-ddfaa53a96adcf893893f875e1b54a30"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Estimated Firearm Purchases and Firearm Related Mortality Rates in New Jersey (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-ddfaa53a96adcf893893f875e1b54a30": [{"Year": 2021, "State": "NJ", "Rate": 5.2, "Deaths": 475, "Total Background Check Requests": 223437, "Notes ": null}, {"Year": 2020, "State": "NJ", "Rate": 5.0, "Deaths": 443, "Total Background Check Requests": 177901, "Notes ": null}, {"Year": 2019, "State": "NJ", "Rate": 4.1, "Deaths": 368, "Total Background Check Requests": 91257, "Notes ": null}, {"Year": 2018, "State": "NJ", "Rate": 4.8, "Deaths": 420, "Total Background Check Requests": 93124, "Notes ": null}, {"Year": 2017, "State": "NJ", "Rate": 5.3, "Deaths": 478, "Total Background Check Requests": 103739, "Notes ": null}, {"Year": 2016, "State": "NJ", "Rate": 5.5, "Deaths": 485, "Total Background Check Requests": 121853, "Notes ": null}]}};
+                var embedOpt = {"mode": "vega-lite"};
 
-    <h3>New Jersey</h3>
-    <div class="state-container" id="new-jersey">
-        <p>According to Everytown Research and Policy, New Jersey ranks as number 7 in the United States for gun law strength with its comprehensive policies that effectively prevent gun violence. For the time period that we studied, New Jersey’s firearm mortality rates decreased and remained quite low even as background check requests went up. This can be an indicator that New Jersey’s gun safety regulations, even with an estimated increase in purchase of firearms, help maintain a low firearm mortality rate. </p>
-        <div id="chart-nj"></div>
-        <script>
-            (function(vegaEmbed) {
-            var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Check Requests", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Check Requests", "type": "quantitative"}}}], "data": {"name": "data-ddfaa53a96adcf893893f875e1b54a30"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Estimated Firearm Purchases and Firearm Related Mortality Rates in New Jersey (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-ddfaa53a96adcf893893f875e1b54a30": [{"Year": 2021, "State": "NJ", "Rate": 5.2, "Deaths": 475, "Total Background Check Requests": 223437, "Notes ": null}, {"Year": 2020, "State": "NJ", "Rate": 5.0, "Deaths": 443, "Total Background Check Requests": 177901, "Notes ": null}, {"Year": 2019, "State": "NJ", "Rate": 4.1, "Deaths": 368, "Total Background Check Requests": 91257, "Notes ": null}, {"Year": 2018, "State": "NJ", "Rate": 4.8, "Deaths": 420, "Total Background Check Requests": 93124, "Notes ": null}, {"Year": 2017, "State": "NJ", "Rate": 5.3, "Deaths": 478, "Total Background Check Requests": 103739, "Notes ": null}, {"Year": 2016, "State": "NJ", "Rate": 5.5, "Deaths": 485, "Total Background Check Requests": 121853, "Notes ": null}]}};
-            var embedOpt = {"mode": "vega-lite"};
-
-            function showError(el, error){
-                el.innerHTML = ('<div style="color:red;">'
-                                + '<p>JavaScript Error: ' + error.message + '</p>'
-                                + "<p>This usually means there's a typo in your chart specification. "
-                                + "See the javascript console for the full traceback.</p>"
-                                + '</div>');
-                throw error;
-            }
-            const el = document.getElementById('chart-nj');
-            vegaEmbed("#chart-nj", spec, embedOpt)
-                .catch(error => showError(el, error));
-            })(vegaEmbed);
-        </script>
-    </div>
-
-    <h3>West Virginia</h3>
-    <div class="state-container" id="west-virginia">
-        <div class="text-container">
-            <p>West Virginia had the smallest percent decrease in death rate at -1.14%. 
-                Looking at the raw numbers, it only had a difference of 13 deaths: 332 in 2016, and 319 in 2021. 
-                However, this number did fluctuate over this period, as can be seen in the graph. </p>
-            <p>As a whole, West Virginia has weak gun laws, and ranks third in the country for household gun ownership. 
-                It is a permitless carry state, meaning that individuals 
-                do not need a permit to carry a weapon, either concealed or out in the open; 
-                additionally, individuals with out-of-state permits may also carry weapons. 
-                However, it is illegal to carry guns at the state capitol, 
-                at protests, and at K-12 schools. 
-                Its laws tend to focus on restricting access to guns: 
-                domestic abusers, felons, and individuals who have committed 
-                hate crimes or have significant mental health issues cannot have guns, 
-                and officials are allowed to report prohibiting records into the background check system. </p>
-            <p>West Virginia generally loosened their gun laws over the time period we analyzed, and yet their death rate still went down over this time period. The largest decrease occurred between 2017 to 2019, after the passage of a bill strengthening mental health reporting to NICS in 2017. As with every state, both lines spiked in 2020, particularly the number of background checks, indicating that many people tried to purchase guns. However, the number of deaths did not increase as much, perhaps indicating that strengthening mental health requirements is an effective measure against increasing gun violence. </p>    
+                function showError(el, error){
+                    el.innerHTML = ('<div style="color:red;">'
+                                    + '<p>JavaScript Error: ' + error.message + '</p>'
+                                    + "<p>This usually means there's a typo in your chart specification. "
+                                    + "See the javascript console for the full traceback.</p>"
+                                    + '</div>');
+                    throw error;
+                }
+                const el = document.getElementById('chart-nj');
+                vegaEmbed("#chart-nj", spec, embedOpt)
+                    .catch(error => showError(el, error));
+                })(vegaEmbed);
+            </script>
         </div>
-        <div id="chart_wv"></div>
-        <script>
-            (function(vegaEmbed) {
-            var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-9a93ebcfd72feb55be936c043e7b8da8"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in West Virginia (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-9a93ebcfd72feb55be936c043e7b8da8": [{"Year": 2021, "State": "WV", "Rate": 17.3, "Deaths": 319, "Total Background Checks": 224240, "Notes": "Strengths regulation of firearm dealers."}, {"Year": 2020, "State": "WV", "Rate": 18.1, "Deaths": 325, "Total Background Checks": 265705, "Notes": "Individuals can carry concealed firearms without a concealed carry permit."}, {"Year": 2019, "State": "WV", "Rate": 16.6, "Deaths": 300, "Total Background Checks": 206196, "Notes": "Passes laws promoting responsible firearm storage and holding adults accountable for preventing children from accessing firearms."}, {"Year": 2018, "State": "WV", "Rate": 18.2, "Deaths": 343, "Total Background Checks": 241678, "Notes": "Individuals with valid out-of-state concealed carry permits can carry in WV."}, {"Year": 2017, "State": "WV", "Rate": 18.6, "Deaths": 348, "Total Background Checks": 222768, "Notes": "Strengthens reporting of mental health records to NICS, aiming to prevent individuals from mental health concerns from accessing firearms."}, {"Year": 2016, "State": "WV", "Rate": 17.5, "Deaths": 332, "Total Background Checks": 242350, "Notes": "Permitless carry takes effect, allowing individuals to openly carry weapons without a permit."}]}};
-            var embedOpt = {"mode": "vega-lite"};
 
-            function showError(el, error){
-                el.innerHTML = ('<div class="error" style="color:red;">'
-                                + '<p>JavaScript Error: ' + error.message + '</p>'
-                                + "<p>This usually means there's a typo in your chart specification. "
-                                + "See the javascript console for the full traceback.</p>"
-                                + '</div>');
-                throw error;
-            }
-            const el = document.getElementById('chart_wv');
-            vegaEmbed("#chart_wv", spec, embedOpt)
-                .catch(error => showError(el, error));
-            })(vegaEmbed);
-        </script>
-    </div>
-
-    <h3>Massachusetts</h3>
-    <div class="state-container" id="massachusetts">
-        <div class="text-container">
-            <p>The mortality rate in Massachusetts appears to remain relatively stable, fluctuating slightly around 3.4 to 3.7 per 100,000 people throughout the six years. The number of background checks shows a general increase from 2016 (226,212 checks) to a peak in 2020 (262,583 checks), followed by a slight decrease in 2021 (259,248 checks). This peak coincides with the global COVID-19 pandemic, a period when many regions saw increased firearm purchases. Each year is marked by legislative actions aimed at tightening gun control:
-            </p>
-            <p>Massachusetts has maintained a proactive approach towards gun control, consistently enacting legislation aimed at enhancing public safety. The relatively stable mortality rate amidst increasing background checks might indicate the effectiveness of these measures, particularly in preventing a rise in firearm-related deaths despite increased interest in firearm ownership highlighted by the spike in background checks in 2020.
-                The implementation of "red flag" laws, stricter background checks, and mandatory waiting periods appear to be pivotal actions potentially stabilizing or preventing an increase in mortality rates. However, the slight fluctuations in the mortality rate suggest that while the measures are beneficial, there is room for ongoing assessment and adaptation to further refine these initiatives.
-                This analysis shows Massachusetts as an example of how consistent legislative action can maintain control over firearm mortality rates, even as interest in firearm ownership fluctuates significantly, particularly during periods of national crisis such as the COVID-19 pandemic.</p>    
+        <div class="state-container" id="west-virginia">
+            <h3>West Virginia</h3>
+            <div class="text-container">
+                <p>West Virginia had the smallest percent decrease in death rate at -1.14%. 
+                    Looking at the raw numbers, it only had a difference of 13 deaths: 332 in 2016, and 319 in 2021. 
+                    However, this number did fluctuate over this period, as can be seen in the graph. </p>
+                <p>As a whole, West Virginia has weak gun laws, and ranks third in the country for household gun ownership. 
+                    It is a permitless carry state, meaning that individuals 
+                    do not need a permit to carry a weapon, either concealed or out in the open; 
+                    additionally, individuals with out-of-state permits may also carry weapons. 
+                    However, it is illegal to carry guns at the state capitol, 
+                    at protests, and at K-12 schools. 
+                    Its laws tend to focus on restricting access to guns: 
+                    domestic abusers, felons, and individuals who have committed 
+                    hate crimes or have significant mental health issues cannot have guns, 
+                    and officials are allowed to report prohibiting records into the background check system. </p>
+                <p>West Virginia generally loosened their gun laws over the time period we analyzed, and yet their death rate still went down over this time period. The largest decrease occurred between 2017 to 2019, after the passage of a bill strengthening mental health reporting to NICS in 2017. As with every state, both lines spiked in 2020, particularly the number of background checks, indicating that many people tried to purchase guns. However, the number of deaths did not increase as much, perhaps indicating that strengthening mental health requirements is an effective measure against increasing gun violence. </p>    
+            </div>
+            <div id="chart_wv"></div>
+            <script>
+                (function(vegaEmbed) {
+                  var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Checks", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-9a93ebcfd72feb55be936c043e7b8da8"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in West Virginia (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-9a93ebcfd72feb55be936c043e7b8da8": [{"Year": 2021, "State": "WV", "Rate": 17.3, "Deaths": 319, "Total Background Checks": 224240, "Notes": "Strengths regulation of firearm dealers."}, {"Year": 2020, "State": "WV", "Rate": 18.1, "Deaths": 325, "Total Background Checks": 265705, "Notes": "Individuals can carry concealed firearms without a concealed carry permit."}, {"Year": 2019, "State": "WV", "Rate": 16.6, "Deaths": 300, "Total Background Checks": 206196, "Notes": "Passes laws promoting responsible firearm storage and holding adults accountable for preventing children from accessing firearms."}, {"Year": 2018, "State": "WV", "Rate": 18.2, "Deaths": 343, "Total Background Checks": 241678, "Notes": "Individuals with valid out-of-state concealed carry permits can carry in WV."}, {"Year": 2017, "State": "WV", "Rate": 18.6, "Deaths": 348, "Total Background Checks": 222768, "Notes": "Strengthens reporting of mental health records to NICS, aiming to prevent individuals from mental health concerns from accessing firearms."}, {"Year": 2016, "State": "WV", "Rate": 17.5, "Deaths": 332, "Total Background Checks": 242350, "Notes": "Permitless carry takes effect, allowing individuals to openly carry weapons without a permit."}]}};
+                  var embedOpt = {"mode": "vega-lite"};
+            
+                  function showError(el, error){
+                      el.innerHTML = ('<div class="error" style="color:red;">'
+                                      + '<p>JavaScript Error: ' + error.message + '</p>'
+                                      + "<p>This usually means there's a typo in your chart specification. "
+                                      + "See the javascript console for the full traceback.</p>"
+                                      + '</div>');
+                      throw error;
+                  }
+                  const el = document.getElementById('chart_wv');
+                  vegaEmbed("#chart_wv", spec, embedOpt)
+                    .catch(error => showError(el, error));
+                })(vegaEmbed);
+            </script>
         </div>
-        <div id="chart_ma"></div>
-        <script>
-            (function(vegaEmbed) {
-            var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-ac31da9ee485ced8baad7f0cf9186713"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in Massachusetts (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-ac31da9ee485ced8baad7f0cf9186713": [{"Year": 2021, "State": "MA", "Rate": 3.4, "Deaths": 247, "Total Background Checks": 259248, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes."}, {"Year": 2020, "State": "MA", "Rate": 3.7, "Deaths": 268, "Total Background Checks": 262583, "Notes": "Extends mandatory waiting time for firearm purchases, allowing for more time for background checks."}, {"Year": 2019, "State": "MA", "Rate": 3.4, "Deaths": 247, "Total Background Checks": 212316, "Notes": "Tightens background checks for all firearm transfers."}, {"Year": 2018, "State": "MA", "Rate": 3.5, "Deaths": 258, "Total Background Checks": 211295, "Notes": "Implements \"red flag\" laws, allowing authorities and family members to seek temporary firearm removal from individuals showing signs of danger."}, {"Year": 2017, "State": "MA", "Rate": 3.7, "Deaths": 262, "Total Background Checks": 206492, "Notes": "Passes legislation that requires individuals to obtain a firearms identification card to purchase ammunition."}, {"Year": 2016, "State": "MA", "Rate": 3.4, "Deaths": 242, "Total Background Checks": 226212, "Notes": "Introduces regulations mandating secure firearm storage to prevent access by unauthorized individual."}]}};
-            var embedOpt = {"mode": "vega-lite"};
 
-            function showError(el, error){
-                el.innerHTML = ('<div class="error" style="color:red;">'
-                                + '<p>JavaScript Error: ' + error.message + '</p>'
-                                + "<p>This usually means there's a typo in your chart specification. "
-                                + "See the javascript console for the full traceback.</p>"
-                                + '</div>');
-                throw error;
-            }
-            const el = document.getElementById('chart_ma');
-            vegaEmbed("#chart_ma", spec, embedOpt)
-                .catch(error => showError(el, error));
-            })(vegaEmbed);
-        </script>
-    </div>
-
-    <h3>Maine</h3>
-    <div class="state-container" id="maine">
-        <p>According to Everytown Research and Policy, Maine ranks 25th in the United States for gun law strength and has had few gun laws. Maine allows individuals to carry handguns without a permit yet maintains a relatively low gun violence rate. Furthermore, many of firearm related deaths in Maine are related to suicide but the state has few regulations aimed at preventing firearm suicide. A key highlight from the time frame that we examined is the increase in background checks requested in 2020 but the decrease in the firearm mortality rate. </p>
-        <div id="chart-me"></div>
-        <script>
-            (function(vegaEmbed) {
-            var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Check Requests", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Check Requests", "type": "quantitative"}}}], "data": {"name": "data-3558a233822ee08a317d4f0c10ff3439"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Estimated Firearm Purchases and Firearm Related Mortality Rates in Maine (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-3558a233822ee08a317d4f0c10ff3439": [{"Year": 2021, "State": "ME", "Rate": 12.6, "Deaths": 178, "Total Background Check Requests": 129193, "Notes ": null}, {"Year": 2020, "State": "ME", "Rate": 10.4, "Deaths": 153, "Total Background Check Requests": 137149, "Notes ": null}, {"Year": 2019, "State": "ME", "Rate": 11.5, "Deaths": 163, "Total Background Check Requests": 90626, "Notes ": null}, {"Year": 2018, "State": "ME", "Rate": 10.3, "Deaths": 159, "Total Background Check Requests": 93360, "Notes ": null}, {"Year": 2017, "State": "ME", "Rate": 11.7, "Deaths": 172, "Total Background Check Requests": 96590, "Notes ": null}, {"Year": 2016, "State": "ME", "Rate": 8.3, "Deaths": 123, "Total Background Check Requests": 111582, "Notes ": null}]}};
-            var embedOpt = {"mode": "vega-lite"};
-
-            function showError(el, error){
-                el.innerHTML = ('<div style="color:red;">'
-                                + '<p>JavaScript Error: ' + error.message + '</p>'
-                                + "<p>This usually means there's a typo in your chart specification. "
-                                + "See the javascript console for the full traceback.</p>"
-                                + '</div>');
-                throw error;
-            }
-            const el = document.getElementById('chart-me');
-            vegaEmbed("#chart-me", spec, embedOpt)
-                .catch(error => showError(el, error));
-            })(vegaEmbed);
-        </script>
-    </div>
-
-    <h3>New Mexico</h3>
-    <div class="state-container" id="new-mexico">
-        <div class="text-container">
-            <p>New Mexico experienced a consistent rise in the firearm mortality rate, escalating from 18.1 to 27.8 deaths per 100,000 people. This increase raises concerns about the effectiveness of the state's measures to control gun-related incidents. The number of background checks also increased, suggesting a heightened interest in firearm ownership. This rise was particularly notable during 2020, aligning with national trends influenced by the pandemic and social tensions. New Mexico's legislative focus included adopting red flag laws, expanding background checks to include private transactions, and imposing stricter penalties for gun trafficking.</p>
-            <p>The consistent rise in both firearm mortality rates and background checks in New Mexico might indicate that while more people are being screened before acquiring guns, the measures in place are not effectively preventing increases in gun violence. The steady increase in mortality rates despite enhanced legislation suggests potential gaps in enforcement, public awareness, or the specific targeting of high-risk groups. Improving these areas could help align the rise in background checks with a corresponding decrease in firearm-related deaths.
-            </p>
+        <div class="state-container" id="massachusetts">
+            <h3>Massachusetts</h3>
+            <div class="text-container">
+                <p>The mortality rate in Massachusetts appears to remain relatively stable, fluctuating slightly around 3.4 to 3.7 per 100,000 people throughout the six years. The number of background checks shows a general increase from 2016 (226,212 checks) to a peak in 2020 (262,583 checks), followed by a slight decrease in 2021 (259,248 checks). This peak coincides with the global COVID-19 pandemic, a period when many regions saw increased firearm purchases. Each year is marked by legislative actions aimed at tightening gun control:
+                </p>
+                <p>Massachusetts has maintained a proactive approach towards gun control, consistently enacting legislation aimed at enhancing public safety. The relatively stable mortality rate amidst increasing background checks might indicate the effectiveness of these measures, particularly in preventing a rise in firearm-related deaths despite increased interest in firearm ownership highlighted by the spike in background checks in 2020.
+                    The implementation of "red flag" laws, stricter background checks, and mandatory waiting periods appear to be pivotal actions potentially stabilizing or preventing an increase in mortality rates. However, the slight fluctuations in the mortality rate suggest that while the measures are beneficial, there is room for ongoing assessment and adaptation to further refine these initiatives.
+                    This analysis shows Massachusetts as an example of how consistent legislative action can maintain control over firearm mortality rates, even as interest in firearm ownership fluctuates significantly, particularly during periods of national crisis such as the COVID-19 pandemic.</p>    
+            </div>
+            <div id="chart_ma"></div>
+            <script>
+                (function(vegaEmbed) {
+                  var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Checks", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-ac31da9ee485ced8baad7f0cf9186713"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in Massachusetts (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-ac31da9ee485ced8baad7f0cf9186713": [{"Year": 2021, "State": "MA", "Rate": 3.4, "Deaths": 247, "Total Background Checks": 259248, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes."}, {"Year": 2020, "State": "MA", "Rate": 3.7, "Deaths": 268, "Total Background Checks": 262583, "Notes": "Extends mandatory waiting time for firearm purchases, allowing for more time for background checks."}, {"Year": 2019, "State": "MA", "Rate": 3.4, "Deaths": 247, "Total Background Checks": 212316, "Notes": "Tightens background checks for all firearm transfers."}, {"Year": 2018, "State": "MA", "Rate": 3.5, "Deaths": 258, "Total Background Checks": 211295, "Notes": "Implements \"red flag\" laws, allowing authorities and family members to seek temporary firearm removal from individuals showing signs of danger."}, {"Year": 2017, "State": "MA", "Rate": 3.7, "Deaths": 262, "Total Background Checks": 206492, "Notes": "Passes legislation that requires individuals to obtain a firearms identification card to purchase ammunition."}, {"Year": 2016, "State": "MA", "Rate": 3.4, "Deaths": 242, "Total Background Checks": 226212, "Notes": "Introduces regulations mandating secure firearm storage to prevent access by unauthorized individual."}]}};
+                  var embedOpt = {"mode": "vega-lite"};
+            
+                  function showError(el, error){
+                      el.innerHTML = ('<div class="error" style="color:red;">'
+                                      + '<p>JavaScript Error: ' + error.message + '</p>'
+                                      + "<p>This usually means there's a typo in your chart specification. "
+                                      + "See the javascript console for the full traceback.</p>"
+                                      + '</div>');
+                      throw error;
+                  }
+                  const el = document.getElementById('chart_ma');
+                  vegaEmbed("#chart_ma", spec, embedOpt)
+                    .catch(error => showError(el, error));
+                })(vegaEmbed);
+            </script>
         </div>
-        <div id="chart-nm"></div>
-        <script>
-            (function(vegaEmbed) {
-            var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-b4c838bbf498a1c351e82f41f548c022"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in New Mexico (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-b4c838bbf498a1c351e82f41f548c022": [{"Year": 2021, "State": "NM", "Rate": 27.8, "Deaths": 578, "Total Background Checks": 194989, "Notes": "Discusses the potential adoption of a \u201cstand your ground\u201d law allowing individuals to use deadly force in self-defense."}, {"Year": 2020, "State": "NM", "Rate": 22.7, "Deaths": 479, "Total Background Checks": 206252, "Notes": "Adopts \u201cred flag\u201d laws allowing family members and law enforcement to seek temporary firearm removal for individuals posing risks."}, {"Year": 2019, "State": "NM", "Rate": 22.3, "Deaths": 471, "Total Background Checks": 156829, "Notes": "Requires legislation for background checks on all firearm sales including private transactions to regulate access and prevent unauthorized sales."}, {"Year": 2018, "State": "NM", "Rate": 20.7, "Deaths": 438, "Total Background Checks": 156853, "Notes": "Introduces guidelines to promote responsible firearm storage practices especially in homes with minors to prevent unauthorized access and accidents."}, {"Year": 2017, "State": "NM", "Rate": 18.5, "Deaths": 394, "Total Background Checks": 159779, "Notes": "Introduces legislation enforcing stricter penalties for individuals involved in gun trafficking to deter illegal firearm transfers and trafficking activities."}, {"Year": 2016, "State": "NM", "Rate": 18.1, "Deaths": 383, "Total Background Checks": 161216, "Notes": "Discusses potential firearm dealer licensing requirements to enhance oversight of gun sales and prevent illegal sales and regulate dealers."}]}};
-            var embedOpt = {"mode": "vega-lite"};
 
-            function showError(el, error){
-                el.innerHTML = ('<div class="error" style="color:red;">'
-                                + '<p>JavaScript Error: ' + error.message + '</p>'
-                                + "<p>This usually means there's a typo in your chart specification. "
-                                + "See the javascript console for the full traceback.</p>"
-                                + '</div>');
-                throw error;
-            }
-            const el = document.getElementById('chart-nm');
-            vegaEmbed("#chart-nm", spec, embedOpt)
-                .catch(error => showError(el, error));
-            })(vegaEmbed);
-        </script>
-    </div>
+        <div class="state-container" id="maine">
+            <h3>Maine</h3>
+            <p>According to Everytown Research and Policy, Maine ranks 25th in the United States for gun law strength and has had few gun laws. Maine allows individuals to carry handguns without a permit yet maintains a relatively low gun violence rate. Furthermore, many of firearm related deaths in Maine are related to suicide but the state has few regulations aimed at preventing firearm suicide. A key highlight from the time frame that we examined is the increase in background checks requested in 2020 but the decrease in the firearm mortality rate. </p>
+            <div id="chart-me"></div>
+            <script>
+                (function(vegaEmbed) {
+                var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Check Requests", "type": "quantitative"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Check Requests", "type": "quantitative"}}}], "data": {"name": "data-3558a233822ee08a317d4f0c10ff3439"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Estimated Firearm Purchases and Firearm Related Mortality Rates in Maine (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-3558a233822ee08a317d4f0c10ff3439": [{"Year": 2021, "State": "ME", "Rate": 12.6, "Deaths": 178, "Total Background Check Requests": 129193, "Notes ": null}, {"Year": 2020, "State": "ME", "Rate": 10.4, "Deaths": 153, "Total Background Check Requests": 137149, "Notes ": null}, {"Year": 2019, "State": "ME", "Rate": 11.5, "Deaths": 163, "Total Background Check Requests": 90626, "Notes ": null}, {"Year": 2018, "State": "ME", "Rate": 10.3, "Deaths": 159, "Total Background Check Requests": 93360, "Notes ": null}, {"Year": 2017, "State": "ME", "Rate": 11.7, "Deaths": 172, "Total Background Check Requests": 96590, "Notes ": null}, {"Year": 2016, "State": "ME", "Rate": 8.3, "Deaths": 123, "Total Background Check Requests": 111582, "Notes ": null}]}};
+                var embedOpt = {"mode": "vega-lite"};
 
-    <h3>Mississippi</h3>
-    <div class="state-container" id="mississippi">
-        <div class="text-container">
-            <p>Mississippi exhibited the highest percent change in death rate out of the entire country at a whopping 70.35%. Its death rate steadily increased over the time period, whereas its background checks declined, before displaying a sharp increase in 2020. </p>
-            <p>Out of the entire country, Mississippi has some of the weakest gun laws, and is also one of the top states in household gun ownership. Its only restrictions are barring individuals with felony convictions from possessing guns, not impeding efforts to hold police accountable for misconduct (such as excessive use of force), and allowing officials to report felons to the background check system.</p>
-            <p>Over the time period we analyzed, Mississippi did make penalties for gun crimes harsher, and enhanced background checks for concealed carry applicants. However, it does not appear as if any of the laws Mississippi passed had any effect on lowering the gun death rate; in fact, since the rate of gun deaths steadily increased, they may have done the opposite. The number of background checks spiked drastically in 2020, indicating a spike in people attempting to purchase guns. This was likely due to the widespread protests against racial injustice and police brutality. Since the rate of deaths did not increase as much, perhaps this indicates that the weak protections Mississippi has are somewhat effective; however, since the death rate still steadily increased, it is clear that these laws are not sufficient. </p>    
+                function showError(el, error){
+                    el.innerHTML = ('<div style="color:red;">'
+                                    + '<p>JavaScript Error: ' + error.message + '</p>'
+                                    + "<p>This usually means there's a typo in your chart specification. "
+                                    + "See the javascript console for the full traceback.</p>"
+                                    + '</div>');
+                    throw error;
+                }
+                const el = document.getElementById('chart-me');
+                vegaEmbed("#chart-me", spec, embedOpt)
+                    .catch(error => showError(el, error));
+                })(vegaEmbed);
+            </script>
         </div>
-        <div id="chart_ms"></div>
-        <script>
-            (function(vegaEmbed) {
-            var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-5d4c62a31abe5b9e4fa46f732b31d2f6"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in Mississippi (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-5d4c62a31abe5b9e4fa46f732b31d2f6": [{"Year": 2021, "State": "MS", "Rate": 33.9, "Deaths": 962, "Total Background Checks": 323319, "Notes": "Proposes legislation to enhance firearm training requirements for concealed carry applicants, emphasizing responsible gun ownership."}, {"Year": 2020, "State": "MS", "Rate": 28.6, "Deaths": 818, "Total Background Checks": 366829, "Notes": "Passes regulations requiring reporting lost or stolen firearms to law enforcement."}, {"Year": 2019, "State": "MS", "Rate": 24.2, "Deaths": 710, "Total Background Checks": 238388, "Notes": "Enhances background checks for concealed carry applicants, focusing on mental health history and criminal records."}, {"Year": 2018, "State": "MS", "Rate": 22.9, "Deaths": 681, "Total Background Checks": 247278, "Notes": "Prevents local jurisdictions from enacting firearm regulations that exceed state laws."}, {"Year": 2017, "State": "MS", "Rate": 21.5, "Deaths": 632, "Total Background Checks": 251852, "Notes": "Imposes stricter penalties for individuals convicted of gun-related crimes, aiming to deter illegal firearm use."}, {"Year": 2016, "State": "MS", "Rate": 19.9, "Deaths": 587, "Total Background Checks": 276161, "Notes": "Passes \"stand your ground law\", which allows individuals to use deadly force in self-defense without a duty to retreat."}]}};
-            var embedOpt = {"mode": "vega-lite"};
 
-            function showError(el, error){
-                el.innerHTML = ('<div class="error" style="color:red;">'
-                                + '<p>JavaScript Error: ' + error.message + '</p>'
-                                + "<p>This usually means there's a typo in your chart specification. "
-                                + "See the javascript console for the full traceback.</p>"
-                                + '</div>');
-                throw error;
-            }
-            const el = document.getElementById('chart_ms');
-            vegaEmbed("#chart_ms", spec, embedOpt)
-                .catch(error => showError(el, error));
-            })(vegaEmbed);
-        </script>
+        <div class="state-container" id="new-mexico">
+            <h3>New Mexico</h3>
+            <div class="text-container">
+                <p>New Mexico experienced a consistent rise in the firearm mortality rate, escalating from 18.1 to 27.8 deaths per 100,000 people. This increase raises concerns about the effectiveness of the state's measures to control gun-related incidents. The number of background checks also increased, suggesting a heightened interest in firearm ownership. This rise was particularly notable during 2020, aligning with national trends influenced by the pandemic and social tensions. New Mexico's legislative focus included adopting red flag laws, expanding background checks to include private transactions, and imposing stricter penalties for gun trafficking.</p>
+                <p>The consistent rise in both firearm mortality rates and background checks in New Mexico might indicate that while more people are being screened before acquiring guns, the measures in place are not effectively preventing increases in gun violence. The steady increase in mortality rates despite enhanced legislation suggests potential gaps in enforcement, public awareness, or the specific targeting of high-risk groups. Improving these areas could help align the rise in background checks with a corresponding decrease in firearm-related deaths.
+                </p>
+            </div>
+            <div id="chart-nm"></div>
+            <script>
+                (function(vegaEmbed) {
+                  var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Checks", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-b4c838bbf498a1c351e82f41f548c022"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in New Mexico (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-b4c838bbf498a1c351e82f41f548c022": [{"Year": 2021, "State": "NM", "Rate": 27.8, "Deaths": 578, "Total Background Checks": 194989, "Notes": "Discusses the potential adoption of a \u201cstand your ground\u201d law allowing individuals to use deadly force in self-defense."}, {"Year": 2020, "State": "NM", "Rate": 22.7, "Deaths": 479, "Total Background Checks": 206252, "Notes": "Adopts \u201cred flag\u201d laws allowing family members and law enforcement to seek temporary firearm removal for individuals posing risks."}, {"Year": 2019, "State": "NM", "Rate": 22.3, "Deaths": 471, "Total Background Checks": 156829, "Notes": "Requires legislation for background checks on all firearm sales including private transactions to regulate access and prevent unauthorized sales."}, {"Year": 2018, "State": "NM", "Rate": 20.7, "Deaths": 438, "Total Background Checks": 156853, "Notes": "Introduces guidelines to promote responsible firearm storage practices especially in homes with minors to prevent unauthorized access and accidents."}, {"Year": 2017, "State": "NM", "Rate": 18.5, "Deaths": 394, "Total Background Checks": 159779, "Notes": "Introduces legislation enforcing stricter penalties for individuals involved in gun trafficking to deter illegal firearm transfers and trafficking activities."}, {"Year": 2016, "State": "NM", "Rate": 18.1, "Deaths": 383, "Total Background Checks": 161216, "Notes": "Discusses potential firearm dealer licensing requirements to enhance oversight of gun sales and prevent illegal sales and regulate dealers."}]}};
+                  var embedOpt = {"mode": "vega-lite"};
+            
+                  function showError(el, error){
+                      el.innerHTML = ('<div class="error" style="color:red;">'
+                                      + '<p>JavaScript Error: ' + error.message + '</p>'
+                                      + "<p>This usually means there's a typo in your chart specification. "
+                                      + "See the javascript console for the full traceback.</p>"
+                                      + '</div>');
+                      throw error;
+                  }
+                  const el = document.getElementById('chart-nm');
+                  vegaEmbed("#chart-nm", spec, embedOpt)
+                    .catch(error => showError(el, error));
+                })(vegaEmbed);
+            </script>
+        </div>
+
+        <div class="state-container" id="mississippi">
+            <h3>Mississippi</h3>
+            <div class="text-container">
+                <p>Mississippi exhibited the highest percent change in death rate out of the entire country at a whopping 70.35%. Its death rate steadily increased over the time period, whereas its background checks declined, before displaying a sharp increase in 2020. </p>
+                <p>Out of the entire country, Mississippi has some of the weakest gun laws, and is also one of the top states in household gun ownership. Its only restrictions are barring individuals with felony convictions from possessing guns, not impeding efforts to hold police accountable for misconduct (such as excessive use of force), and allowing officials to report felons to the background check system.</p>
+                <p>Over the time period we analyzed, Mississippi did make penalties for gun crimes harsher, and enhanced background checks for concealed carry applicants. However, it does not appear as if any of the laws Mississippi passed had any effect on lowering the gun death rate; in fact, since the rate of gun deaths steadily increased, they may have done the opposite. The number of background checks spiked drastically in 2020, indicating a spike in people attempting to purchase guns. This was likely due to the widespread protests against racial injustice and police brutality. Since the rate of deaths did not increase as much, perhaps this indicates that the weak protections Mississippi has are somewhat effective; however, since the death rate still steadily increased, it is clear that these laws are not sufficient. </p>    
+            </div>
+            <div id="chart_ms"></div>
+            <script>
+                (function(vegaEmbed) {
+                  var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"color": {"value": "red"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Rate", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Rate", "titleColor": "red"}, "field": "Rate", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"color": {"value": "blue"}, "tooltip": [{"field": "Year", "type": "quantitative"}, {"field": "Total Background Checks", "type": "quantitative"}, {"field": "Notes", "type": "nominal"}], "x": {"axis": {"title": "Year"}, "field": "Year", "type": "nominal"}, "y": {"axis": {"title": "Total Background Checks", "titleColor": "blue"}, "field": "Total Background Checks", "type": "quantitative"}}}], "data": {"name": "data-5d4c62a31abe5b9e4fa46f732b31d2f6"}, "height": 300, "resolve": {"scale": {"y": "independent"}}, "title": "Firearm Mortality Rates and Deaths in Mississippi (2016-2021)", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-5d4c62a31abe5b9e4fa46f732b31d2f6": [{"Year": 2021, "State": "MS", "Rate": 33.9, "Deaths": 962, "Total Background Checks": 323319, "Notes": "Proposes legislation to enhance firearm training requirements for concealed carry applicants, emphasizing responsible gun ownership."}, {"Year": 2020, "State": "MS", "Rate": 28.6, "Deaths": 818, "Total Background Checks": 366829, "Notes": "Passes regulations requiring reporting lost or stolen firearms to law enforcement."}, {"Year": 2019, "State": "MS", "Rate": 24.2, "Deaths": 710, "Total Background Checks": 238388, "Notes": "Enhances background checks for concealed carry applicants, focusing on mental health history and criminal records."}, {"Year": 2018, "State": "MS", "Rate": 22.9, "Deaths": 681, "Total Background Checks": 247278, "Notes": "Prevents local jurisdictions from enacting firearm regulations that exceed state laws."}, {"Year": 2017, "State": "MS", "Rate": 21.5, "Deaths": 632, "Total Background Checks": 251852, "Notes": "Imposes stricter penalties for individuals convicted of gun-related crimes, aiming to deter illegal firearm use."}, {"Year": 2016, "State": "MS", "Rate": 19.9, "Deaths": 587, "Total Background Checks": 276161, "Notes": "Passes \"stand your ground law\", which allows individuals to use deadly force in self-defense without a duty to retreat."}]}};
+                  var embedOpt = {"mode": "vega-lite"};
+            
+                  function showError(el, error){
+                      el.innerHTML = ('<div class="error" style="color:red;">'
+                                      + '<p>JavaScript Error: ' + error.message + '</p>'
+                                      + "<p>This usually means there's a typo in your chart specification. "
+                                      + "See the javascript console for the full traceback.</p>"
+                                      + '</div>');
+                      throw error;
+                  }
+                  const el = document.getElementById('chart_ms');
+                  vegaEmbed("#chart_ms", spec, embedOpt)
+                    .catch(error => showError(el, error));
+                })(vegaEmbed);
+            </script>
+        </div>
     </div>
+
+    <!--
+    <div id="combined-chart"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <script>
+        (function(vegaEmbed) {
+            var spec = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v.json",
+                "description": "Dual-axis chart with interactive highlight",
+                "data": {
+                    "values": [
+                        /* 2016 */
+                        {"State": "NH", "Year": "2016", "Variable": "Mortality Rate", "Value": 9.3, "Notes": "Strengthens its preemption laws to prevent local jurisdictions from enacting firearm regulations that exceed state laws."},
+                        {"State": "NH", "Year": "2016", "Variable": "Background Checks", "Value": 165164, "Notes": "Strengthens its preemption laws to prevent local jurisdictions from enacting firearm regulations that exceed state laws."},
+                        {"State": "NJ", "Year": "2016", "Variable": "Mortality Rate", "Value": 5.5, "Notes": null},
+                        {"State": "NJ", "Year": "2016", "Variable": "Background Checks", "Value": 121853, "Notes": null},
+                        {"State": "WV", "Year": "2016", "Variable": "Mortality Rate", "Value": 17.5, "Notes": "Permitless carry takes effect, allowing individuals to openly carry weapons without a permit."},
+                        {"State": "WV", "Year": "2016", "Variable": "Background Checks", "Value": 242350, "Notes": "Permitless carry takes effect, allowing individuals to openly carry weapons without a permit."},
+                        {"State": "MA", "Year": "2016", "Variable": "Mortality Rate", "Value": 3.4, "Notes": "Introduces regulations mandating secure firearm storage to prevent access by unauthorized individual."},
+                        {"State": "MA", "Year": "2016", "Variable": "Background Checks", "Value": 226212, "Notes": "Introduces regulations mandating secure firearm storage to prevent access by unauthorized individual."},
+                        {"State": "ME", "Year": "2016", "Variable": "Mortality Rate", "Value": 8.3, "Notes": null},
+                        {"State": "ME", "Year": "2016", "Variable": "Background Checks", "Value": 111582, "Notes": null},
+                        {"State": "NM", "Year": "2016", "Variable": "Mortality Rate", "Value": 18.1, "Notes": "Discusses potential firearm dealer licensing requirements to enhance oversight of gun sales and prevent illegal sales and regulate dealers."},
+                        {"State": "NM", "Year": "2016", "Variable": "Background Checks", "Value": 161216, "Notes": "Discusses potential firearm dealer licensing requirements to enhance oversight of gun sales and prevent illegal sales and regulate dealers."},
+                        {"State": "MS", "Year": "2016", "Variable": "Mortality Rate", "Value": 19.9, "Notes": "Passes \"stand your ground law\", which allows individuals to use deadly force in self-defense without a duty to retreat."},
+                        {"State": "MS", "Year": "2016", "Variable": "Background Checks", "Value": 276161, "Notes": "Passes \"stand your ground law\", which allows individuals to use deadly force in self-defense without a duty to retreat."},
+
+                        /* 2017 */
+                        {"State": "NH", "Year": "2017", "Variable": "Mortality Rate", "Value": 10.4, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes to deter illegal firearm use."},
+                        {"State": "NH", "Year": "2017", "Variable": "Background Checks", "Value": 129090, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes to deter illegal firearm use."},
+                        {"State": "NJ", "Year": "2017", "Variable": "Mortality Rate", "Value": 5.3, "Notes": null},
+                        {"State": "NJ", "Year": "2017", "Variable": "Background Checks", "Value": 103739, "Notes": null},
+                        {"State": "WV", "Year": "2017", "Variable": "Mortality Rate", "Value": 18.6, "Notes": "Strengthens reporting of mental health records to NICS, aiming to prevent individuals from mental health concerns from accessing firearms."},
+                        {"State": "WV", "Year": "2017", "Variable": "Background Checks", "Value": 222768, "Notes": "Strengthens reporting of mental health records to NICS, aiming to prevent individuals from mental health concerns from accessing firearms."},
+                        {"State": "MA", "Year": "2017", "Variable": "Mortality Rate", "Value": 3.7, "Notes": "Passes legislation that requires individuals to obtain a firearms identification card to purchase ammunition."},
+                        {"State": "MA", "Year": "2017", "Variable": "Background Checks", "Value": 206492, "Notes": "Passes legislation that requires individuals to obtain a firearms identification card to purchase ammunition."},
+                        {"State": "ME", "Year": "2017", "Variable": "Mortality Rate", "Value": 11.7, "Notes": null},
+                        {"State": "ME", "Year": "2017", "Variable": "Background Checks", "Value": 96590, "Notes": null},
+                        {"State": "NM", "Year": "2017", "Variable": "Mortality Rate", "Value": 18.5, "Notes": "Introduces legislation enforcing stricter penalties for individuals involved in gun trafficking to deter illegal firearm transfers and trafficking activities."},
+                        {"State": "NM", "Year": "2017", "Variable": "Background Checks", "Value": 159779, "Notes": "Introduces legislation enforcing stricter penalties for individuals involved in gun trafficking to deter illegal firearm transfers and trafficking activities."},
+                        {"State": "MS", "Year": "2017", "Variable": "Mortality Rate", "Value": 21.5, "Notes": "Imposes stricter penalties for individuals convicted of gun-related crimes, aiming to deter illegal firearm use."},
+                        {"State": "MS", "Year": "2017", "Variable": "Background Checks", "Value": 251852, "Notes": "Imposes stricter penalties for individuals convicted of gun-related crimes, aiming to deter illegal firearm use."},
+
+                        /* 2018 */
+                        {"State": "NH", "Year": "2018", "Variable": "Mortality Rate", "Value": 10.8, "Notes": "Introduces guidelines promoting responsible firearm storage practices to prevent unauthorized access in households with minors particularly."},
+                        {"State": "NH", "Year": "2018", "Variable": "Background Checks", "Value": 120889, "Notes": "Introduces guidelines promoting responsible firearm storage practices to prevent unauthorized access in households with minors particularly."},
+                        {"State": "NJ", "Year": "2018", "Variable": "Mortality Rate", "Value": 4.8, "Notes": null},
+                        {"State": "NJ", "Year": "2018", "Variable": "Background Checks", "Value": 93124, "Notes": null},
+                        {"State": "WV", "Year": "2018", "Variable": "Mortality Rate", "Value": 18.2, "Notes": "Individuals with valid out-of-state concealed carry permits can carry in WV."},
+                        {"State": "WV", "Year": "2018", "Variable": "Background Checks", "Value": 241678, "Notes": "Individuals with valid out-of-state concealed carry permits can carry in WV."},
+                        {"State": "MA", "Year": "2018", "Variable": "Mortality Rate", "Value": 3.5, "Notes": "Implements \"red flag\" laws, allowing authorities and family members to seek temporary firearm removal from individuals showing signs of danger."},
+                        {"State": "MA", "Year": "2018", "Variable": "Background Checks", "Value": 211295, "Notes": "Implements \"red flag\" laws, allowing authorities and family members to seek temporary firearm removal from individuals showing signs of danger."},
+                        {"State": "ME", "Year": "2018", "Variable": "Mortality Rate", "Value": 10.3, "Notes": null},
+                        {"State": "ME", "Year": "2018", "Variable": "Background Checks", "Value": 93360, "Notes": null},
+                        {"State": "NM", "Year": "2018", "Variable": "Mortality Rate", "Value": 20.7, "Notes": "Introduces guidelines to promote responsible firearm storage practices especially in homes with minors to prevent unauthorized access and accidents."},
+                        {"State": "NM", "Year": "2018", "Variable": "Background Checks", "Value": 156853, "Notes": "Introduces guidelines to promote responsible firearm storage practices especially in homes with minors to prevent unauthorized access and accidents."},
+                        {"State": "MS", "Year": "2018", "Variable": "Mortality Rate", "Value": 22.9, "Notes": "Prevents local jurisdictions from enacting firearm regulations that exceed state laws."},
+                        {"State": "MS", "Year": "2018", "Variable": "Background Checks", "Value": 247278, "Notes": "Prevents local jurisdictions from enacting firearm regulations that exceed state laws."},
+
+
+                        /* 2019 */
+                        {"State": "NH", "Year": "2019", "Variable": "Mortality Rate", "Value": 10.7, "Notes": "Tightens the background check process for concealed carry permit applicants with focusing on mental health history and criminal records."},
+                        {"State": "NH", "Year": "2019", "Variable": "Background Checks", "Value": 112173, "Notes": "Tightens the background check process for concealed carry permit applicants with focusing on mental health history and criminal records."},
+                        {"State": "NJ", "Year": "2019", "Variable": "Mortality Rate", "Value": 4.1, "Notes": null},
+                        {"State": "NJ", "Year": "2019", "Variable": "Background Checks", "Value": 91257, "Notes": null},
+                        {"State": "WV", "Year": "2019", "Variable": "Mortality Rate", "Value": 16.6, "Notes": "Passes laws promoting responsible firearm storage and holding adults accountable for preventing children from accessing firearms."},
+                        {"State": "WV", "Year": "2019", "Variable": "Background Checks", "Value": 206196, "Notes": "Passes laws promoting responsible firearm storage and holding adults accountable for preventing children from accessing firearms."},
+                        {"State": "MA", "Year": "2019", "Variable": "Mortality Rate", "Value": 3.4, "Notes": "Tightens background checks for all firearm transfers."},
+                        {"State": "MA", "Year": "2019", "Variable": "Background Checks", "Value": 212316, "Notes": "Tightens background checks for all firearm transfers."},
+                        {"State": "ME", "Year": "2019", "Variable": "Mortality Rate", "Value": 11.5, "Notes": null},
+                        {"State": "ME", "Year": "2019", "Variable": "Background Checks", "Value": 90626, "Notes": null},
+                        {"State": "NM", "Year": "2019", "Variable": "Mortality Rate", "Value": 22.3, "Notes": "Requires legislation for background checks on all firearm sales including private transactions to regulate access and prevent unauthorized sales."},
+                        {"State": "NM", "Year": "2019", "Variable": "Background Checks", "Value": 156829, "Notes": "Requires legislation for background checks on all firearm sales including private transactions to regulate access and prevent unauthorized sales."},
+                        {"State": "MS", "Year": "2019", "Variable": "Mortality Rate", "Value": 24.2, "Notes": "Enhances background checks for concealed carry applicants, focusing on mental health history and criminal records."},
+                        {"State": "MS", "Year": "2019", "Variable": "Background Checks", "Value": 238388, "Notes": "Enhances background checks for concealed carry applicants, focusing on mental health history and criminal records."},
+
+                        /* 2020 */
+                        {"State": "NH", "Year": "2020", "Variable": "Mortality Rate", "Value": 8.9, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."},
+                        {"State": "NH", "Year": "2020", "Variable": "Background Checks", "Value": 174662, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."},
+                        {"State": "NJ", "Year": "2020", "Variable": "Mortality Rate", "Value": 5.5, "Notes": null},
+                        {"State": "NJ", "Year": "2020", "Variable": "Background Checks", "Value": 177901, "Notes": null},
+                        {"State": "WV", "Year": "2020", "Variable": "Mortality Rate", "Value": 18.1, "Notes": "Individuals can carry concealed firearms without a concealed carry permit."},
+                        {"State": "WV", "Year": "2020", "Variable": "Background Checks", "Value": 265705, "Notes": "Individuals can carry concealed firearms without a concealed carry permit."},
+                        {"State": "MA", "Year": "2020", "Variable": "Mortality Rate", "Value": 3.7, "Notes": "Extends mandatory waiting time for firearm purchases, allowing for more time for background checks."},
+                        {"State": "MA", "Year": "2020", "Variable": "Background Checks", "Value": 262583, "Notes": "Extends mandatory waiting time for firearm purchases, allowing for more time for background checks."},
+                        {"State": "ME", "Year": "2020", "Variable": "Mortality Rate", "Value": 10.4, "Notes": null},
+                        {"State": "ME", "Year": "2020", "Variable": "Background Checks", "Value": 137149, "Notes": null},
+                        {"State": "NM", "Year": "2020", "Variable": "Mortality Rate", "Value": 22.7, "Notes": "Adopts “red flag” laws allowing family members and law enforcement to seek temporary firearm removal for individuals posing risks."},
+                        {"State": "NM", "Year": "2020", "Variable": "Background Checks", "Value": 206252, "Notes": "Adopts “red flag” laws allowing family members and law enforcement to seek temporary firearm removal for individuals posing risks."},
+                        {"State": "MS", "Year": "2020", "Variable": "Mortality Rate", "Value": 28.6, "Notes": "Passes regulations requiring reporting lost or stolen firearms to law enforcement."},
+                        {"State": "MS", "Year": "2020", "Variable": "Background Checks", "Value": 366829, "Notes": "Passes regulations requiring reporting lost or stolen firearms to law enforcement."},
+
+
+                        /* 2021 */
+                        {"State": "NH", "Year": "2021", "Variable": "Mortality Rate", "Value": 8.3, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."},
+                        {"State": "NH", "Year": "2021", "Variable": "Background Checks", "Value": 151853, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."},
+                        {"State": "NJ", "Year": "2021", "Variable": "Mortality Rate", "Value": 5.2, "Notes": null},
+                        {"State": "NJ", "Year": "2021", "Variable": "Background Checks", "Value": 223437, "Notes": null},
+                        {"State": "WV", "Year": "2021", "Variable": "Mortality Rate", "Value": 17.3, "Notes": "Strengths regulation of firearm dealers."},
+                        {"State": "WV", "Year": "2021", "Variable": "Background Checks", "Value": 224240, "Notes": "Strengths regulation of firearm dealers."},
+                        {"State": "MA", "Year": "2021", "Variable": "Mortality Rate", "Value": 3.4, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes."},
+                        {"State": "MA", "Year": "2021", "Variable": "Background Checks", "Value": 259248, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes."},
+                        {"State": "ME", "Year": "2021", "Variable": "Mortality Rate", "Value": 12.6, "Notes": null},
+                        {"State": "ME", "Year": "2021", "Variable": "Background Checks", "Value": 129193, "Notes": null},
+                        {"State": "NM", "Year": "2021", "Variable": "Mortality Rate", "Value": 27.8, "Notes": "Discusses the potential adoption of a “stand your ground” law allowing individuals to use deadly force in self-defense."},
+                        {"State": "NM", "Year": "2021", "Variable": "Background Checks", "Value": 194989, "Notes": "Discusses the potential adoption of a “stand your ground” law allowing individuals to use deadly force in self-defense."},
+                        {"State": "MS", "Year": "2021", "Variable": "Mortality Rate", "Value": 33.9, "Notes": "Proposes legislation to enhance firearm training requirements for concealed carry applicants, emphasizing responsible gun ownership."},
+                        {"State": "MS", "Year": "2021", "Variable": "Background Checks", "Value": 323319, "Notes": "Proposes legislation to enhance firearm training requirements for concealed carry applicants, emphasizing responsible gun ownership."},
+                    ]
+                },
+                "transform": [
+                    {
+                        "calculate": "datum.Variable === 'Mortality Rate' ? datum.Value : null",
+                        "as": "Rate"
+                    },
+                    {
+                        "calculate": "datum.Variable === 'Background Checks' ? datum.Value : null",
+                        "as": "Checks"
+                    }
+                ],
+                "vconcat": [{
+                    "layer": [
+                        {
+                            "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
+                            "encoding": {
+                                "x": {"field": "Year", "type": "ordinal"},
+                                "y": {
+                                    "field": "Rate",
+                                    "type": "quantitative",
+                                    "axis": {"title": "Mortality Rate"},
+                                    "scale": {"zero": false}
+                                },
+                                "color": {"field": "State", "type": "nominal"},
+                                "opacity": {
+                                    "condition": {"param": "hover", "value": 1},
+                                    "value": 0.2
+                                }
+                            }
+                        },
+                        {
+                            "mark": {"type": "line", "point": {"filled": true}},
+                            "encoding": {
+                                "x": {"field": "Year", "type": "ordinal"},
+                                "y": {
+                                    "field": "Checks",
+                                    "type": "quantitative",
+                                    "axis": {"title": "Background Checks", "orient": "right"},
+                                    "scale": {"zero": false}
+                                },
+                                "color": {"field": "State", "type": "nominal"},
+                                "opacity": {
+                                    "condition": {"param": "hover", "value": 1},
+                                    "value": 0.2
+                                }
+                            }
+                        }
+                    ],
+                    "params": [{
+                        "name": "hover",
+                        "select": {"type": "point", "fields": ["State"]},
+                        "bind": "legend"
+                    }]
+                }],
+                "resolve": {
+                    "scale": {
+                        "y": "independent"
+                    }
+                }
+            };
+        
+            var embedOpt = {"mode": "vega-lite"};
+            const el = document.getElementById('combined-chart');
+            vegaEmbed("#combined-chart", spec, embedOpt)
+                .catch(error => {
+                    el.innerHTML = ('<div class="error" style="color:red;">'
+                                    + '<p>JavaScript Error: ' + error.message + '</p>'
+                                    + "<p>This usually means there's a typo in your chart specification. "
+                                    + "See the javascript console for the full traceback.</p>"
+                                    + '</div>');
+                    throw error;
+                });
+        })(vegaEmbed);
+        </script>
+    -->
+
+
+    <!-- Dropdown menu  -->
+    <script>
+        document.getElementById('state-select').addEventListener('change', function() {
+            var allContainers = document.querySelectorAll('.state-container');
+            allContainers.forEach(function(container) {
+                container.style.display = 'none'; // Hide all containers
+            });
+
+            var selectedState = this.value;
+            if (selectedState) {
+                var selectedContainer = document.getElementById(selectedState);
+                selectedContainer.style.display = 'block'; // Show the selected state's container
+            }
+        });
+    </script>
 </body>
 </html>
