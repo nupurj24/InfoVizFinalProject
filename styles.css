@@ -6,6 +6,7 @@ html {
 
 body {
     padding: 4%;
+    margin: 150px;
 }
 
 .title {
@@ -29,6 +30,7 @@ h3 {
 .state-container {
     display: flex;
     width: 100%;
+    display: none;
 }
 
 /* #wv_deaths {
