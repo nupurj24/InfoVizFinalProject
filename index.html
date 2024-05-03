@@ -19,8 +19,11 @@
 <body>
     <!-- alt z to auto wrap text in vscode -->
     <p>In the past several years, high numbers of gun violence have been a contentious issue in the US. As a result, legislation revolving around guns has been constantly shifting, and every state continues to update its laws almost every year, if not more.</p>
-    <p>In order to investigate which laws seem to be most impactful, we will corroborate background check data from the FBI's National Instant Criminal Background Check System (NICS) with gun death data from the CDC from 2016 to 2021. Under federal law, background checks are required in order to purchase a firearm from a licensed dealer; however, the data does not specify why the background check was requested.</p>
-    <p>We used largely used information from <a href="gun.laws.com">gun.laws.com</a>, a website that focuses on delivering legal information through technology, to track the relevant legislative changes that were made by each state over the years. All changes were verified with the state's published gun handbook (found online) for that year.</p>
+    <p>To analyze the changes in gun violence over time, as well as the factors correlating with or impacting these rates, we will corroborate background check data from the FBI's National Instant Criminal Background Check System (NICS) with gun death data from the CDC from 2016 to 2021.</p>
+    <p>Under federal law, background checks are required in order to purchase a firearm from a licensed dealer. Each state also has their own requirements relating to what criteria will bar an individual from purchasing a gun. Thus, we can track how many guns are attempted to be purchased each year by tracking the total number of background checks requested by a state.</p>
+    <p>The dataset from the CDC provides both the raw numbers of deaths caused by firearms, and importantly, the age-adjusted death rate per state. This statistic adjusts for any confounding caused by age. We will use this to analyze trends in the death rate per state per year.</p>
+    <p>For legislative information, we largely used information from gun.laws.com, a website that focuses on delivering legal information through technology, to track the relevant legislative changes that were made by each state over the years. This information was manually verified with the state's published gun handbook (found online) for that year. Together with the background check and gun death data, we can analyze how certain legislative changes can impact the rate of gun deaths. 
+    </p>
 
     <h2>An Overview of the Whole Country</h2>
     <p>We first decided to explore which states had the highest changes in gun deaths over time. To do this, we created a map of all of the states, and calculated the percent change of the age-adjusted death rates between 2016 and 2021.</p>
@@ -150,7 +153,7 @@
         <div class="state-container" id="massachusetts">
             <h3>Massachusetts</h3>
             <div class="text-container">
-                <p>The mortality rate in Massachusetts appears to remain relatively stable, fluctuating slightly around 3.4 to 3.7 per 100,000 people throughout the six years. The number of background checks shows a general increase from 2016 (226,212 checks) to a peak in 2020 (262,583 checks), followed by a slight decrease in 2021 (259,248 checks). This peak coincides with the global COVID-19 pandemic, a period when many regions saw increased firearm purchases. Each year is marked by legislative actions aimed at tightening gun control:
+                <p>The mortality rate in Massachusetts appears to remain relatively stable, fluctuating slightly around 3.4 to 3.7 per 100,000 people throughout the six years. The number of background checks shows a general increase from 2016 (226,212 checks) to a peak in 2020 (262,583 checks), followed by a slight decrease in 2021 (259,248 checks). This peak coincides with the global COVID-19 pandemic, a period when many regions saw increased firearm purchases. Each year is marked by legislative actions aimed at tightening gun control.
                 </p>
                 <p>Massachusetts has maintained a proactive approach towards gun control, consistently enacting legislation aimed at enhancing public safety. The relatively stable mortality rate amidst increasing background checks might indicate the effectiveness of these measures, particularly in preventing a rise in firearm-related deaths despite increased interest in firearm ownership highlighted by the spike in background checks in 2020.
                     The implementation of "red flag" laws, stricter background checks, and mandatory waiting periods appear to be pivotal actions potentially stabilizing or preventing an increase in mortality rates. However, the slight fluctuations in the mortality rate suggest that while the measures are beneficial, there is room for ongoing assessment and adaptation to further refine these initiatives.
@@ -258,195 +261,6 @@
         </div>
     </div>
 
-    <!--
-    <div id="combined-chart"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-    <script>
-        (function(vegaEmbed) {
-            var spec = {
-                "$schema": "https://vega.github.io/schema/vega-lite/v.json",
-                "description": "Dual-axis chart with interactive highlight",
-                "data": {
-                    "values": [
-                        /* 2016 */
-                        {"State": "NH", "Year": "2016", "Variable": "Mortality Rate", "Value": 9.3, "Notes": "Strengthens its preemption laws to prevent local jurisdictions from enacting firearm regulations that exceed state laws."},
-                        {"State": "NH", "Year": "2016", "Variable": "Background Checks", "Value": 165164, "Notes": "Strengthens its preemption laws to prevent local jurisdictions from enacting firearm regulations that exceed state laws."},
-                        {"State": "NJ", "Year": "2016", "Variable": "Mortality Rate", "Value": 5.5, "Notes": null},
-                        {"State": "NJ", "Year": "2016", "Variable": "Background Checks", "Value": 121853, "Notes": null},
-                        {"State": "WV", "Year": "2016", "Variable": "Mortality Rate", "Value": 17.5, "Notes": "Permitless carry takes effect, allowing individuals to openly carry weapons without a permit."},
-                        {"State": "WV", "Year": "2016", "Variable": "Background Checks", "Value": 242350, "Notes": "Permitless carry takes effect, allowing individuals to openly carry weapons without a permit."},
-                        {"State": "MA", "Year": "2016", "Variable": "Mortality Rate", "Value": 3.4, "Notes": "Introduces regulations mandating secure firearm storage to prevent access by unauthorized individual."},
-                        {"State": "MA", "Year": "2016", "Variable": "Background Checks", "Value": 226212, "Notes": "Introduces regulations mandating secure firearm storage to prevent access by unauthorized individual."},
-                        {"State": "ME", "Year": "2016", "Variable": "Mortality Rate", "Value": 8.3, "Notes": null},
-                        {"State": "ME", "Year": "2016", "Variable": "Background Checks", "Value": 111582, "Notes": null},
-                        {"State": "NM", "Year": "2016", "Variable": "Mortality Rate", "Value": 18.1, "Notes": "Discusses potential firearm dealer licensing requirements to enhance oversight of gun sales and prevent illegal sales and regulate dealers."},
-                        {"State": "NM", "Year": "2016", "Variable": "Background Checks", "Value": 161216, "Notes": "Discusses potential firearm dealer licensing requirements to enhance oversight of gun sales and prevent illegal sales and regulate dealers."},
-                        {"State": "MS", "Year": "2016", "Variable": "Mortality Rate", "Value": 19.9, "Notes": "Passes \"stand your ground law\", which allows individuals to use deadly force in self-defense without a duty to retreat."},
-                        {"State": "MS", "Year": "2016", "Variable": "Background Checks", "Value": 276161, "Notes": "Passes \"stand your ground law\", which allows individuals to use deadly force in self-defense without a duty to retreat."},
-
-                        /* 2017 */
-                        {"State": "NH", "Year": "2017", "Variable": "Mortality Rate", "Value": 10.4, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes to deter illegal firearm use."},
-                        {"State": "NH", "Year": "2017", "Variable": "Background Checks", "Value": 129090, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes to deter illegal firearm use."},
-                        {"State": "NJ", "Year": "2017", "Variable": "Mortality Rate", "Value": 5.3, "Notes": null},
-                        {"State": "NJ", "Year": "2017", "Variable": "Background Checks", "Value": 103739, "Notes": null},
-                        {"State": "WV", "Year": "2017", "Variable": "Mortality Rate", "Value": 18.6, "Notes": "Strengthens reporting of mental health records to NICS, aiming to prevent individuals from mental health concerns from accessing firearms."},
-                        {"State": "WV", "Year": "2017", "Variable": "Background Checks", "Value": 222768, "Notes": "Strengthens reporting of mental health records to NICS, aiming to prevent individuals from mental health concerns from accessing firearms."},
-                        {"State": "MA", "Year": "2017", "Variable": "Mortality Rate", "Value": 3.7, "Notes": "Passes legislation that requires individuals to obtain a firearms identification card to purchase ammunition."},
-                        {"State": "MA", "Year": "2017", "Variable": "Background Checks", "Value": 206492, "Notes": "Passes legislation that requires individuals to obtain a firearms identification card to purchase ammunition."},
-                        {"State": "ME", "Year": "2017", "Variable": "Mortality Rate", "Value": 11.7, "Notes": null},
-                        {"State": "ME", "Year": "2017", "Variable": "Background Checks", "Value": 96590, "Notes": null},
-                        {"State": "NM", "Year": "2017", "Variable": "Mortality Rate", "Value": 18.5, "Notes": "Introduces legislation enforcing stricter penalties for individuals involved in gun trafficking to deter illegal firearm transfers and trafficking activities."},
-                        {"State": "NM", "Year": "2017", "Variable": "Background Checks", "Value": 159779, "Notes": "Introduces legislation enforcing stricter penalties for individuals involved in gun trafficking to deter illegal firearm transfers and trafficking activities."},
-                        {"State": "MS", "Year": "2017", "Variable": "Mortality Rate", "Value": 21.5, "Notes": "Imposes stricter penalties for individuals convicted of gun-related crimes, aiming to deter illegal firearm use."},
-                        {"State": "MS", "Year": "2017", "Variable": "Background Checks", "Value": 251852, "Notes": "Imposes stricter penalties for individuals convicted of gun-related crimes, aiming to deter illegal firearm use."},
-
-                        /* 2018 */
-                        {"State": "NH", "Year": "2018", "Variable": "Mortality Rate", "Value": 10.8, "Notes": "Introduces guidelines promoting responsible firearm storage practices to prevent unauthorized access in households with minors particularly."},
-                        {"State": "NH", "Year": "2018", "Variable": "Background Checks", "Value": 120889, "Notes": "Introduces guidelines promoting responsible firearm storage practices to prevent unauthorized access in households with minors particularly."},
-                        {"State": "NJ", "Year": "2018", "Variable": "Mortality Rate", "Value": 4.8, "Notes": null},
-                        {"State": "NJ", "Year": "2018", "Variable": "Background Checks", "Value": 93124, "Notes": null},
-                        {"State": "WV", "Year": "2018", "Variable": "Mortality Rate", "Value": 18.2, "Notes": "Individuals with valid out-of-state concealed carry permits can carry in WV."},
-                        {"State": "WV", "Year": "2018", "Variable": "Background Checks", "Value": 241678, "Notes": "Individuals with valid out-of-state concealed carry permits can carry in WV."},
-                        {"State": "MA", "Year": "2018", "Variable": "Mortality Rate", "Value": 3.5, "Notes": "Implements \"red flag\" laws, allowing authorities and family members to seek temporary firearm removal from individuals showing signs of danger."},
-                        {"State": "MA", "Year": "2018", "Variable": "Background Checks", "Value": 211295, "Notes": "Implements \"red flag\" laws, allowing authorities and family members to seek temporary firearm removal from individuals showing signs of danger."},
-                        {"State": "ME", "Year": "2018", "Variable": "Mortality Rate", "Value": 10.3, "Notes": null},
-                        {"State": "ME", "Year": "2018", "Variable": "Background Checks", "Value": 93360, "Notes": null},
-                        {"State": "NM", "Year": "2018", "Variable": "Mortality Rate", "Value": 20.7, "Notes": "Introduces guidelines to promote responsible firearm storage practices especially in homes with minors to prevent unauthorized access and accidents."},
-                        {"State": "NM", "Year": "2018", "Variable": "Background Checks", "Value": 156853, "Notes": "Introduces guidelines to promote responsible firearm storage practices especially in homes with minors to prevent unauthorized access and accidents."},
-                        {"State": "MS", "Year": "2018", "Variable": "Mortality Rate", "Value": 22.9, "Notes": "Prevents local jurisdictions from enacting firearm regulations that exceed state laws."},
-                        {"State": "MS", "Year": "2018", "Variable": "Background Checks", "Value": 247278, "Notes": "Prevents local jurisdictions from enacting firearm regulations that exceed state laws."},
-
-
-                        /* 2019 */
-                        {"State": "NH", "Year": "2019", "Variable": "Mortality Rate", "Value": 10.7, "Notes": "Tightens the background check process for concealed carry permit applicants with focusing on mental health history and criminal records."},
-                        {"State": "NH", "Year": "2019", "Variable": "Background Checks", "Value": 112173, "Notes": "Tightens the background check process for concealed carry permit applicants with focusing on mental health history and criminal records."},
-                        {"State": "NJ", "Year": "2019", "Variable": "Mortality Rate", "Value": 4.1, "Notes": null},
-                        {"State": "NJ", "Year": "2019", "Variable": "Background Checks", "Value": 91257, "Notes": null},
-                        {"State": "WV", "Year": "2019", "Variable": "Mortality Rate", "Value": 16.6, "Notes": "Passes laws promoting responsible firearm storage and holding adults accountable for preventing children from accessing firearms."},
-                        {"State": "WV", "Year": "2019", "Variable": "Background Checks", "Value": 206196, "Notes": "Passes laws promoting responsible firearm storage and holding adults accountable for preventing children from accessing firearms."},
-                        {"State": "MA", "Year": "2019", "Variable": "Mortality Rate", "Value": 3.4, "Notes": "Tightens background checks for all firearm transfers."},
-                        {"State": "MA", "Year": "2019", "Variable": "Background Checks", "Value": 212316, "Notes": "Tightens background checks for all firearm transfers."},
-                        {"State": "ME", "Year": "2019", "Variable": "Mortality Rate", "Value": 11.5, "Notes": null},
-                        {"State": "ME", "Year": "2019", "Variable": "Background Checks", "Value": 90626, "Notes": null},
-                        {"State": "NM", "Year": "2019", "Variable": "Mortality Rate", "Value": 22.3, "Notes": "Requires legislation for background checks on all firearm sales including private transactions to regulate access and prevent unauthorized sales."},
-                        {"State": "NM", "Year": "2019", "Variable": "Background Checks", "Value": 156829, "Notes": "Requires legislation for background checks on all firearm sales including private transactions to regulate access and prevent unauthorized sales."},
-                        {"State": "MS", "Year": "2019", "Variable": "Mortality Rate", "Value": 24.2, "Notes": "Enhances background checks for concealed carry applicants, focusing on mental health history and criminal records."},
-                        {"State": "MS", "Year": "2019", "Variable": "Background Checks", "Value": 238388, "Notes": "Enhances background checks for concealed carry applicants, focusing on mental health history and criminal records."},
-
-                        /* 2020 */
-                        {"State": "NH", "Year": "2020", "Variable": "Mortality Rate", "Value": 8.9, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."},
-                        {"State": "NH", "Year": "2020", "Variable": "Background Checks", "Value": 174662, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."},
-                        {"State": "NJ", "Year": "2020", "Variable": "Mortality Rate", "Value": 5.5, "Notes": null},
-                        {"State": "NJ", "Year": "2020", "Variable": "Background Checks", "Value": 177901, "Notes": null},
-                        {"State": "WV", "Year": "2020", "Variable": "Mortality Rate", "Value": 18.1, "Notes": "Individuals can carry concealed firearms without a concealed carry permit."},
-                        {"State": "WV", "Year": "2020", "Variable": "Background Checks", "Value": 265705, "Notes": "Individuals can carry concealed firearms without a concealed carry permit."},
-                        {"State": "MA", "Year": "2020", "Variable": "Mortality Rate", "Value": 3.7, "Notes": "Extends mandatory waiting time for firearm purchases, allowing for more time for background checks."},
-                        {"State": "MA", "Year": "2020", "Variable": "Background Checks", "Value": 262583, "Notes": "Extends mandatory waiting time for firearm purchases, allowing for more time for background checks."},
-                        {"State": "ME", "Year": "2020", "Variable": "Mortality Rate", "Value": 10.4, "Notes": null},
-                        {"State": "ME", "Year": "2020", "Variable": "Background Checks", "Value": 137149, "Notes": null},
-                        {"State": "NM", "Year": "2020", "Variable": "Mortality Rate", "Value": 22.7, "Notes": "Adopts “red flag” laws allowing family members and law enforcement to seek temporary firearm removal for individuals posing risks."},
-                        {"State": "NM", "Year": "2020", "Variable": "Background Checks", "Value": 206252, "Notes": "Adopts “red flag” laws allowing family members and law enforcement to seek temporary firearm removal for individuals posing risks."},
-                        {"State": "MS", "Year": "2020", "Variable": "Mortality Rate", "Value": 28.6, "Notes": "Passes regulations requiring reporting lost or stolen firearms to law enforcement."},
-                        {"State": "MS", "Year": "2020", "Variable": "Background Checks", "Value": 366829, "Notes": "Passes regulations requiring reporting lost or stolen firearms to law enforcement."},
-
-
-                        /* 2021 */
-                        {"State": "NH", "Year": "2021", "Variable": "Mortality Rate", "Value": 8.3, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."},
-                        {"State": "NH", "Year": "2021", "Variable": "Background Checks", "Value": 151853, "Notes": "Enacts legislation allowing family members and law enforcement to petition for temporary firearm removal from individuals in mental health crisis."},
-                        {"State": "NJ", "Year": "2021", "Variable": "Mortality Rate", "Value": 5.2, "Notes": null},
-                        {"State": "NJ", "Year": "2021", "Variable": "Background Checks", "Value": 223437, "Notes": null},
-                        {"State": "WV", "Year": "2021", "Variable": "Mortality Rate", "Value": 17.3, "Notes": "Strengths regulation of firearm dealers."},
-                        {"State": "WV", "Year": "2021", "Variable": "Background Checks", "Value": 224240, "Notes": "Strengths regulation of firearm dealers."},
-                        {"State": "MA", "Year": "2021", "Variable": "Mortality Rate", "Value": 3.4, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes."},
-                        {"State": "MA", "Year": "2021", "Variable": "Background Checks", "Value": 259248, "Notes": "Introduces stricter penalties for individuals convicted of gun-related crimes."},
-                        {"State": "ME", "Year": "2021", "Variable": "Mortality Rate", "Value": 12.6, "Notes": null},
-                        {"State": "ME", "Year": "2021", "Variable": "Background Checks", "Value": 129193, "Notes": null},
-                        {"State": "NM", "Year": "2021", "Variable": "Mortality Rate", "Value": 27.8, "Notes": "Discusses the potential adoption of a “stand your ground” law allowing individuals to use deadly force in self-defense."},
-                        {"State": "NM", "Year": "2021", "Variable": "Background Checks", "Value": 194989, "Notes": "Discusses the potential adoption of a “stand your ground” law allowing individuals to use deadly force in self-defense."},
-                        {"State": "MS", "Year": "2021", "Variable": "Mortality Rate", "Value": 33.9, "Notes": "Proposes legislation to enhance firearm training requirements for concealed carry applicants, emphasizing responsible gun ownership."},
-                        {"State": "MS", "Year": "2021", "Variable": "Background Checks", "Value": 323319, "Notes": "Proposes legislation to enhance firearm training requirements for concealed carry applicants, emphasizing responsible gun ownership."},
-                    ]
-                },
-                "transform": [
-                    {
-                        "calculate": "datum.Variable === 'Mortality Rate' ? datum.Value : null",
-                        "as": "Rate"
-                    },
-                    {
-                        "calculate": "datum.Variable === 'Background Checks' ? datum.Value : null",
-                        "as": "Checks"
-                    }
-                ],
-                "vconcat": [{
-                    "layer": [
-                        {
-                            "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
-                            "encoding": {
-                                "x": {"field": "Year", "type": "ordinal"},
-                                "y": {
-                                    "field": "Rate",
-                                    "type": "quantitative",
-                                    "axis": {"title": "Mortality Rate"},
-                                    "scale": {"zero": false}
-                                },
-                                "color": {"field": "State", "type": "nominal"},
-                                "opacity": {
-                                    "condition": {"param": "hover", "value": 1},
-                                    "value": 0.2
-                                }
-                            }
-                        },
-                        {
-                            "mark": {"type": "line", "point": {"filled": true}},
-                            "encoding": {
-                                "x": {"field": "Year", "type": "ordinal"},
-                                "y": {
-                                    "field": "Checks",
-                                    "type": "quantitative",
-                                    "axis": {"title": "Background Checks", "orient": "right"},
-                                    "scale": {"zero": false}
-                                },
-                                "color": {"field": "State", "type": "nominal"},
-                                "opacity": {
-                                    "condition": {"param": "hover", "value": 1},
-                                    "value": 0.2
-                                }
-                            }
-                        }
-                    ],
-                    "params": [{
-                        "name": "hover",
-                        "select": {"type": "point", "fields": ["State"]},
-                        "bind": "legend"
-                    }]
-                }],
-                "resolve": {
-                    "scale": {
-                        "y": "independent"
-                    }
-                }
-            };
-        
-            var embedOpt = {"mode": "vega-lite"};
-            const el = document.getElementById('combined-chart');
-            vegaEmbed("#combined-chart", spec, embedOpt)
-                .catch(error => {
-                    el.innerHTML = ('<div class="error" style="color:red;">'
-                                    + '<p>JavaScript Error: ' + error.message + '</p>'
-                                    + "<p>This usually means there's a typo in your chart specification. "
-                                    + "See the javascript console for the full traceback.</p>"
-                                    + '</div>');
-                    throw error;
-                });
-        })(vegaEmbed);
-        </script>
-    -->
-
-
     <!-- Dropdown menu  -->
     <script>
         document.getElementById('state-select').addEventListener('change', function() {
@@ -462,5 +276,8 @@
             }
         });
     </script>
+
+    <h2>Conclusions</h2>
+    <p></p>
 </body>
 </html>
